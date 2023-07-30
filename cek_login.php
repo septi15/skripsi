@@ -7,7 +7,8 @@ include 'koneksi.php';
  
 // menangkap data yang dikirim dari form
 $email = $_POST['email'];
-$password = $_POST['password'];
+//$password = $_POST['password'];
+$password = md5($_POST['password']);
  
 // menyeleksi data admin dengan username dan password yang sesuai
 $data = mysqli_query($koneksi,"select * from user_login where email='$email' and password='$password'");
@@ -22,6 +23,6 @@ if($cek > 0){
     header("location:user/index.php");
 
 }else{
-	header("location:index.php?pesan=gagal");
+	header("location:login_user.php?pesan=gagal");
 }
 ?>

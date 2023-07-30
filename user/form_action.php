@@ -1,7 +1,5 @@
 <?php
  // Check If form submitted, insert form data into users table.
-
-
  function noreg(){
     include '../koneksi.php';
     $query_select = "SELECT id_siswa_baru from pendaftaran_siswa_baru ORDER by id_siswa_baru desc limit 1";
@@ -35,11 +33,11 @@
     return $id_siswa_baru;
  }
 
- function inputdataorangtua($id_siswa_baru,$namaayah,$tempatayah,$tlayah,$pekerjaanayah,$pendidikanayah,$penghasilanayah,$kebutuhankhususayah,
- $namaibu,$tempatibu,$tlibu,$pekerjaanibu,$pendidikanibu,$penghasilanibu,$kebutuhankhususibu){
+ function inputdataorangtua($id_siswa_baru,$namaayah,$tempatayah,$tlayah,$pekerjaanayah,$pendidikanayah,$penghasilanayah,
+ $namaibu,$tempatibu,$tlibu,$pekerjaanibu,$pendidikanibu,$penghasilanibu){
     include '../koneksi.php';
-    $sql = "INSERT INTO data_orang_tua VALUES('','$id_siswa_baru','$namaayah','$tempatayah','$tlayah','$pekerjaanayah','$pendidikanayah','$penghasilanayah','$kebutuhankhususayah',
-    '$namaibu','$tempatibu','$tlibu,','$pekerjaanibu','$pendidikanibu','$penghasilanibu','$kebutuhankhususibu')";
+    $sql = "INSERT INTO data_orang_tua VALUES('','$id_siswa_baru','$namaayah','$tempatayah','$tlayah','$pekerjaanayah','$pendidikanayah','$penghasilanayah',
+    '$namaibu','$tempatibu','$tlibu,','$pekerjaanibu','$pendidikanibu','$penghasilanibu')";
     if ($koneksi->query($sql) == TRUE) {
        echo "New record created successfully";
      } else {
@@ -51,7 +49,7 @@
  }
  function review($id_siswa_baru){
     include '../koneksi.php';
-    $sql = "INSERT INTO status_review VALUES('','$id_siswa_baru','belum_lengkap','belum_lengkap')";
+    $sql = "INSERT INTO status_review VALUES('','$id_siswa_baru','','belum_lengkap')";
     if ($koneksi->query($sql) == TRUE) {
        echo "New record created successfully";
      } else {
@@ -70,7 +68,7 @@
     $pekerjaanayah = $_POST['pekerjaanayah'];
     $pendidikanayah = $_POST['pendidikanayah'];
     $penghasilanayah = $_POST['penghasilanayah'];
-    $kebutuhankhususayah = $_POST['kebutuhankhususayah'];
+
     //DATA IBU
     $namaibu = $_POST['namaibu'];
     $tempatibu = $_POST['tempatibu'];
@@ -78,9 +76,9 @@
     $pekerjaanibu = $_POST['pekerjaanibu'];
     $pendidikanibu = $_POST['pendidikanibu'];
     $penghasilanibu = $_POST['penghasilanibu'];
-    $kebutuhankhususibu = $_POST['kebutuhankhususibu'];
-    inputdataorangtua($id_siswa_baru,$namaayah,$tempatayah,$tlayah,$pekerjaanayah,$pendidikanayah,$penghasilanayah,$kebutuhankhususayah,
-    $namaibu,$tempatibu,$tlibu,$pekerjaanibu,$pendidikanibu,$penghasilanibu,$kebutuhankhususibu);
+    
+    inputdataorangtua($id_siswa_baru,$namaayah,$tempatayah,$tlayah,$pekerjaanayah,$pendidikanayah,$penghasilanayah,
+    $namaibu,$tempatibu,$tlibu,$pekerjaanibu,$pendidikanibu,$penghasilanibu);
     //DATA MURID
      $nikcamur = $_POST['nikcamur'];
      //Upload Files 
@@ -106,48 +104,23 @@
      $tempat = $_POST['tempat'];
      $tl = $_POST['tl'];
      $alamat = $_POST['alamat'];
-     $modatransportasi = $_POST['modatransportasi'];
      $nohp = $_POST['nohp'];
      $email = $_POST['email'];
-     $tbanak = $_POST['tbanak'];
-     $bbanak = $_POST['bbanak'];
-     $goldar = $_POST['goldar'];
-     $warna_kulit = $_POST['warna_kulit'];
-     $bentuk_wajah = $_POST['bentuk_wajah'];
-     $jenis_rambut = $_POST['jenis_rambut'];
-     $jarak = $_POST['jarak'];
-     $waktu_tempuh = $_POST['waktutempuh'];
-     $saudara = $_POST['saudara'];
-     $metode = $_POST['metode'];
+
      
  
      // include database connection file
      include '../koneksi.php';
-    
-     // Insert user data into table
      
-     $sql = "INSERT INTO pendaftaran_siswa_baru VALUES('$id_siswa_baru','$nikcamur','$namalengkapcamur','$jeniskelamin','$tempat','$tl','$alamat','$modatransportasi','$nohp','$email','$tbanak','$bbanak','$goldar','$warna_kulit','$bentuk_wajah','$jenis_rambut','$jarak','$waktu_tempuh','$saudara','$metode','$filename_kk','$filename_kia','$filename_akta')";
-     //echo $koneksi->$result;
-     // Show message when user added
-     //echo $sql;
+     $sql = "INSERT INTO pendaftaran_siswa_baru VALUES('$id_siswa_baru','$nikcamur','$namalengkapcamur','$jeniskelamin','$tempat','$tl','$alamat','$nohp','$email','$filename_kk','$filename_kia','$filename_akta')";
+
  
      if ($koneksi->query($sql) == TRUE) {
-        //echo "New record created successfully";
-        //echo "<script>alert('Email dan Nomor Telepon.'$nohp '.' $email'. Berhasil Terdaftar ')</script>";
-        review($id_siswa_baru);
+       review($id_siswa_baru);
         header("location:index.php");
       } else {
           echo "Error" . $sql . "<br>" . $koneksi->error;
       }
- 
-    
-    /*   if ($koneksi->$result){
-        echo "eka";
-        echo "<script type ='text/JavaScript'>alert('Calon Siswa .'$namalengkapcamur'. Berhasil Terdaftar ')</script>";
-     }
-    else {
-        echo "failed";
-    }*/
      
     $koneksi->close();
  }

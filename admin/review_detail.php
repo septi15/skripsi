@@ -40,28 +40,28 @@ $result = $koneksi->query($query_select);
                           echo "<td>No Registrasi</td>";
                           echo "<td>".$row['id_siswa_baru']."</td>";
                           $id_reg = $row['id_siswa_baru'];
-                        
                           echo "</tr>";
+
                           echo "<tr>" ;
                           echo "<td>Nama Lengkap Calon Murid</td>";
                           echo "<td>".$row['nama_lengkap']."</td>";
-                        
                           echo "</tr>";
+
                           echo "<tr>" ;
                           echo "<td>NIK Calon Murid</td>";
                           echo "<td>".$row['nik_calon_siswa']."</td>";
-                        
                           echo "</tr>";
+
                           echo "<tr>" ;
                           echo "<td>Tempat Tanggal Lahir</td>";
                           echo "<td>".$row['tempat']." ".$row['tanggal_lahir']."</td>";
-                        
                           echo "</tr>";
+
                           echo "<tr>" ;
                           echo "<td>Jenis Kelamin</td>";
                           echo "<td>".$row['jenis_kelamin']."</td>";
-                        
                           echo "</tr>";
+
                           echo "<tr>" ;
                           echo "<td>Alamat</td>";
                           echo "<td>".$row['alamat_lengkap']."</td>";
@@ -70,87 +70,31 @@ $result = $koneksi->query($query_select);
                           echo "<tr>" ;
                           echo "<td>Moda Transportasi</td>";
                           echo "<td>".$row['moda_transportasi']."</td>";
-                        
                           echo "</tr>";
+                          
                           echo "<tr>" ;
                           echo "<td>No Handphone</td>";
                           echo "<td>".$row['no_handphone']."</td>";
-                        
                           echo "</tr>";
+
                           echo "<tr>" ;
                           echo "<td>Email</td>";
                           echo "<td>".$row['email']."</td>";
-                        
                           echo "</tr>";
-                          echo "<tr>" ;
-                          echo "<td>Tinggi Badan</td>";
-                          echo "<td>".$row['tinggi_badan']." Cm </td>";
-                        
-                          echo "</tr>";
-                          echo "<tr>" ;
-                          echo "<td>Berat Badan</td>";
-                          echo "<td>".$row['berat_badan']." Kg </td>";
-                        
-                          echo "</tr>";
-                          echo "<tr>" ;
-                          echo "<td>Golongan Darah</td>";
-                          echo "<td>".$row['golongan_darah']."</td>";
-                        
-                          echo "</tr>";
-                          echo "<tr>" ;
-                          echo "<td>Warna Kulit</td>";
-                          echo "<td>".$row['warna_kulit']."</td>";
-                        
-                          echo "</tr>";
-                          echo "<tr>" ;
-                          echo "<td>Bentuk Wajah</td>";
-                          echo "<td>".$row['bentuk_wajah']."</td>";
-                        
-                          echo "</tr>";
-                          echo "<tr>" ;
-                          echo "<td>Jenis Rambut</td>";
-                          echo "<td>".$row['jenis_rambut']."</td>";
-                        
-                          echo "</tr>";
-                          echo "<tr>" ;
-                          echo "<td>Jarak rumah ke sekolah </td>";
-                          echo "<td>".$row['jarak']."</td>";
-                        
-                          echo "</tr>";
-                          echo "<tr>" ;
-                          echo "<td>Waktu Tempuh ke sekolah</td>";
-                          echo "<td>".$row['waktu_tempuh']."</td>";
-                        
-                          echo "</tr>";
-                          echo "<tr>" ;
-                          echo "<td>Jumlah Saudara</td>";
-                          echo "<td>".$row['saudara']."</td>";
-                        
-                          echo "</tr>";
-                          echo "<tr>" ;
-                          echo "<td>Metode Pembelajaran Quran </td>";
-                          echo "<td>".$row['metode']."</td>";
-                        
-                          echo "</tr>";
-                          echo "</tr>";
+
                           echo "<tr>" ;
                           echo "<td>KK </td>";
-                          echo "<td><img src=../upload_berkas/".$row['kartu_keluarga']."></td>";
-                        
+                          echo "<td><img src=../upload_berkas/".rawurlencode($row['kartu_keluarga'])."></td>";
                           echo "</tr>";
-                          echo "</tr>";
-                          echo "</tr>";
+
                           echo "<tr>" ;
                           echo "<td>KIA </td>";
-                          echo "<td><img src=../upload_berkas/".$row['kia']."></td>";
-                        
+                          echo "<td><img src=../upload_berkas/".rawurlencode($row['kia'])."></td>";
                           echo "</tr>";
-                          echo "</tr>";
-                          echo "</tr>";
+
                           echo "<tr>" ;
                           echo "<td>AKTA </td>";
-                          echo "<td><img src=../upload_berkas/".$row['akta_kelahiran']."></td>";
-                        
+                          echo "<td><img src=../upload_berkas/".rawurlencode($row['akta_kelahiran'])."></td>";
                           echo "</tr>";
                          }?>
                           <form action="review_detail_action.php" method="post">

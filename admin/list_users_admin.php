@@ -16,8 +16,11 @@ $i = 0;
                             <div class="col-md-6">
                               <h4 class="card-title">Status Pendaftaran</h4>
                             </div>  
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <input class="form-control" type="text" id="search" onkeyup="myFunction()" placeholder="Search" />
+                            </div>
+                            <div class="col-md-2">
+                              <input type="button" class="btn btn-primary me-2" id="regisadmin" data-toggle="modal" value="Add User" data-target="#pendaftaranadmin" >
                             </div>
                         </div> 
                   <div class="table-responsive">
@@ -78,6 +81,38 @@ $i = 0;
         </div>
     <!-- page-body-wrapper ends -->
   </div>
+  <div id="pendaftaranadmin" class="modal fade">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+   <h4 class="modal-title text-center"> Registrasi</h4>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    
+   </div>
+   <div class="modal-body">
+   <form method="post" id="registrasi">
+   <div class="form-group">
+        <div class="form-group">
+          <label for="exampleInputUsername1"> No Handphone</label><br>
+          <input type="text" class="fadeIn second" id="nohp" name="nohp" placeholder="No Handphone"><br>
+        <div class="form-group">
+          <label for="exampleInputUsername1"> Email</label><br>
+          <input type="email" class="fadeIn third" id="email" name="email" placeholder="E-Mail">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputUsername1">Password</label>
+          <input type="password" class="fadeIn fourth" id="passwordreg" name="passwordreg" placeholder="Password">
+        </div>
+        <input type="submit" name="bt_registrasi" id="bt_registrasi" value="Registrasi" class="btn btn-primary me-2">
+      </div>
+      </form>
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+   </div>
+  </div>
+ </div>
+</div>
   <!-- container-scroller -->
   <script>
 function myFunction() {

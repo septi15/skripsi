@@ -10,7 +10,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="free-educational-responsive-web-template-webEdu">
-	<meta name="author" content="webThemez.com">
 	<title>Alkhairaat</title>
 	<link rel="icon" type="image/x-icon" href="img/logo.ico">
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">

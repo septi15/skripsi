@@ -47,19 +47,19 @@
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link" href="index.php">
-          <i class="mdi mdi-grid-large menu-icon"></i>
+          <i class="mdi mdi-view-dashboard menu-icon"></i>
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-          <i class="menu-icon mdi mdi-card-text-outline"></i>
-          <span class="menu-title">Pendaftaran</span>
+          <i class="menu-icon mdi mdi-account-details"></i>
+          <span class="menu-title">Pendaftaran (SDIT) </span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="form-elements">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"><a class="nav-link" href="form.php">Siswa Baru</a></li>
+            <li class="nav-item"><a class="nav-link" href="form.php">Form pendaftaran siswa</a></li>
             
           </ul>
         </div>

@@ -6,6 +6,8 @@
      $nohp = $_POST['nohp'];
      $email = $_POST['email'];
      $password = $_POST['passwordreg'];
+     $pass = MD5($password);
+     
      
  
      // include database connection file
@@ -13,7 +15,7 @@
     
      // Insert user data into table
      
-     $sql = "INSERT INTO user_login VALUES('','$nohp','$email','$password')";
+     $sql = "INSERT INTO user_login VALUES('','$nohp','$email','$pass')";
      //echo $koneksi->$result;
      // Show message when user added
      //echo $sql;

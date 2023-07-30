@@ -18,6 +18,10 @@
   <link rel="stylesheet" href="../src/js/select.dataTables.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
+  <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+  <link rel="stylesheet" href="../assets/css/font-awesome.min.css"> 
+	<link rel="stylesheet" href="../assets/css/bootstrap-theme.css" media="screen"> 
+  <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../src/css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../src/images/al-khairaat.jpg" />
