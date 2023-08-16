@@ -9,7 +9,7 @@ include 'koneksi.php';
 $email = $_POST['email'];
 //$password = $_POST['password'];
 $password = md5($_POST['password']);
- 
+
 // menyeleksi data admin dengan username dan password yang sesuai
 $data = mysqli_query($koneksi,"select * from user_login where email='$email' and password='$password'");
  

@@ -18,7 +18,12 @@
   </div>
 
   <div class="navbar-menu-wrapper d-flex align-items-top"> 
-    
+  <ul class="navbar-nav">
+          <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+            <h1 class="welcome-text">Selamat Datang, <span class="text-black fw-bold"><?php echo $_SESSION['email'];?></span></h1>
+            <h3 class="welcome-sub-text">Proses Pendaftaran SDIT Al - Khairaat</h3>
+          </li>
+        </ul>
     <ul class="navbar-nav ms-auto">
       <li class="nav-item dropdown d-none d-lg-block user-dropdown">
         <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,19 +65,23 @@
         <div class="collapse" id="form-elements">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"><a class="nav-link" href="form.php">Form pendaftaran siswa</a></li>
-            
+            <li class="nav-item"> <a class="nav-link" href="hasil.php">Status Pendaftaran</a></li>
+            <li class="nav-item"> <a class="nav-link" href="hasil_test.php">Test</a></li>
           </ul>
         </div>
       </li>
+      
+      
       <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-          <i class="menu-icon mdi mdi-table"></i>
-          <span class="menu-title">Pengumuman</span>
+        <a class="nav-link" data-bs-toggle="collapse" href="#pembayaran" aria-expanded="false" aria-controls="charts">
+          <i class="menu-icon mdi mdi-cash"></i>
+          <span class="menu-title">Pembayaran</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="charts">
+        <div class="collapse" id="pembayaran">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="hasil.php">Hasil Pendaftaran</a></li>
+            <li class="nav-item"> <a class="nav-link" href="status_pembayaran.php">Status Pembayaran</a></li>
+            
           </ul>
         </div>
       </li>

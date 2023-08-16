@@ -1,5 +1,6 @@
-<?php include 'header.php';?>
-<?php include 'sidebar.php';
+<?php
+include 'header.php';
+include 'sidebar.php';
 include '../koneksi.php';
 
 $query_select = "SELECT * FROM pendaftaran_siswa_baru a join data_orang_tua b on a.id_siswa_baru = b.id_siswa_baru join status_review c on a.id_siswa_baru = c.id_siswa_baru ";
@@ -17,12 +18,10 @@ $result = $koneksi->query($query_select);
                             <div class="col-md-6">
                               <h4 class="card-title">Status Pendaftaran</h4>
                             </div>  
-                            <div class="col-md-6">
-                                <input class="form-control" type="text" id="search" onkeyup="myFunction()" placeholder="Search" />
-                            </div>
+
                         </div> 
                   <div class="table-responsive">
-                    <table class="table table-striped sampleTable" id="list_siswa">
+                    <table class="table table-striped" id="table-1">
                       <thead>
                            
                         <tr>
@@ -77,55 +76,12 @@ $result = $koneksi->query($query_select);
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
-       
-
-      <?php include 'footer.php';?>
 </div>
         </div>
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
-  <script>
-function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("search");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("list_siswa");
-  tr = table.getElementsByTagName("tr");
-  //td = tr.getElementsByTagName("td");
 
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[4];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-
-}
-
-</script>
-<script type="text/javascript">
-             
-             $(document).ready(function() {
-                 $(".list_siswa").fancyTable({
-                   /* Column number for initial sorting*/
-                    sortColumn:0,
-                    /* Setting pagination or enabling */
-                    pagination: true,
-                    /* Rows per page kept for display */
-                    perPage:3,
-                    globalSearch:true
-                    });
-                              
-             });
-         </script>
   <!-- plugins:js -->
   <script src="https://cdn.jsdelivr.net/npm/jquery.fancytable/dist/fancyTable.min.js"></script>
 
@@ -140,6 +96,10 @@ function myFunction() {
 
   <!-- End plugin js for this page -->
   <!-- inject:js -->
+  <script src="../css/datatables/media/js/jquery.dataTables.min.js"></script>
+  <script src="../css/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../css/datatables.net-select-bs4/js/select.bootstrap4.min.js"></script>
+  <script src="../js/modules-datatables.js"></script>
   <script src="../src/js/off-canvas.js"></script>
   <script src="../src/js/hoverable-collapse.js"></script>
   <script src="../src/js/template.js"></script>

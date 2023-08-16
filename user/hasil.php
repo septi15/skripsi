@@ -9,13 +9,12 @@ $result = $koneksi->query($query_select);
 <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Status Pendaftaran</h4>
                   <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-striped" id="table-1">
                       <thead>
                            
                         <tr>
@@ -34,6 +33,9 @@ $result = $koneksi->query($query_select);
                           <th>
                             Keterangan
                           </th>
+                          <th>
+                            Action
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -47,6 +49,16 @@ $result = $koneksi->query($query_select);
                           echo "<td>".$row['nama_ayah']. " / ".$row['nama_ibu']."</td>";
                           echo "<td>".$row['status']."</td>";
                           echo "<td>".$row['keterangan']."</td>";
+                           if ($row['status'] == "lengkap") {
+                            echo "<td> Silahkan lakukan Test di menu test </a></td>";
+                          }
+                          else if ($row['status'] == "proses review") {
+                            echo "<td> Menunggu konfirmasi admin</a></td>";
+                          }
+                          else {
+                            echo "<td><a class='btn btn-warning me-2' href='edit_berkas.php? id=$row[id_siswa_baru]'>Lengkapi Berkas</a></td>";
+                          }
+                          //echo "<td>"
                           echo "</tr>";
                          }
                         };
@@ -87,6 +99,10 @@ $result = $koneksi->query($query_select);
   <script src="../src/js/hoverable-collapse.js"></script>
   <script src="../src/js/template.js"></script>
   <!-- <script src="../src/js/settings.js"></script> -->
+  <script src="../css/datatables/media/js/jquery.dataTables.min.js"></script>
+  <script src="../css/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../css/datatables.net-select-bs4/js/select.bootstrap4.min.js"></script>
+  <script src="../js/modules-datatables.js"></script>
   <script src="../src/js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->

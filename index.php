@@ -47,33 +47,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Our School<b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="tkit.php">TKIT Al Khairaat </a></li>
 							<li><a href="sdit.php">SDIT Al Khairaat</a></li>
-              <li><a href="smpit.php">SMPIT Al Khairaat</a></li>
+             
 						</ul>
 					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pendaftaran<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="login_user.php">Pendaftaran PPDB (login) </a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">School Life<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="tkit.php">Article </a></li>
-              <li><a href="tkit.php">Facebook</a></li>
-              <li><a href="tkit.php">Instagram </a></li>
-              <li><a href="tkit.php">Youtube</a></li>
-              <li><a href="tkit.php">News </a></li>
-						</ul>
-					</li>
-          <li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="galleryphoto.php">Photo Gallery </a></li>
-							<li><a href="galleryvideo.php">Video Gallery</a></li>
-            
 						</ul>
 					</li>
           <li><a href="contactus.php">Contact Us</a></li>

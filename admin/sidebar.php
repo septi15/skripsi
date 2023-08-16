@@ -59,18 +59,18 @@
         </a>
         <div class="collapse" id="form-elements">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"><a class="nav-link" href="review.php">List Pendaftaran Siswa</a></li>
-            
+            <li class="nav-item"><a class="nav-link" href="review.php">List Pendaftaran</a></li>
+            <li class="nav-item"><a class="nav-link" href="review_test.php">List Hasil Test </a></li>
           </ul>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+        <a class="nav-link" data-bs-toggle="collapse" href="#manageuser" aria-expanded="false" aria-controls="charts">
           <i class="menu-icon mdi mdi-account"></i>
           <span class="menu-title">Manage User</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="charts">
+        <div class="collapse" id="manageuser">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="list_users_admin.php">List User Admin</a></li>
             <li class="nav-item"> <a class="nav-link" href="list_users.php">List User</a></li>
@@ -85,7 +85,7 @@
         </a>
         <div class="collapse" id="payment">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="list_users_pembayaran.php">List Pembayaran</a></li>
+            <li class="nav-item"> <a class="nav-link" href="list_pembayaran.php">List Pembayaran</a></li>
           </ul>
         </div>
       </li>

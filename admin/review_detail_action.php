@@ -17,7 +17,12 @@
      //echo $koneksi->$result;
      // Show message when user added
      //echo $sql;
- 
+     if ($status == 'lengkap'){
+        inputtest($idreg);
+     }
+     else {
+        echo "do nothing";
+     }
      if ($koneksi->query($sql) == TRUE) {
         //echo "New record created successfully";
         //echo "<script>alert('Email dan Nomor Telepon.'$nohp '.' $email'. Berhasil Terdaftar ')</script>";
@@ -36,5 +41,15 @@
     }*/
      
     $koneksi->close();
+ }
+ function inputtest($id_siswa_baru){
+    include '../koneksi.php';
+    $sql = "INSERT INTO hasil_test VALUES('','$id_siswa_baru',0,'','',now())";
+    if ($koneksi->query($sql) == TRUE) {
+       echo "New record created successfully";
+       //header("location:index.php");
+     } else {
+         echo "Error" . $sql . "<br>" . $koneksi->error;
+     }
  }
  ?> 

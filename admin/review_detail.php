@@ -19,7 +19,7 @@ $result = $koneksi->query($query_select);
                 <div class="card-body">
                   <h4 class="card-title">Review Formulir</h4>
                   <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-striped" id="table-1">
                       <thead>
                            
                         <tr>
@@ -64,13 +64,9 @@ $result = $koneksi->query($query_select);
 
                           echo "<tr>" ;
                           echo "<td>Alamat</td>";
-                          echo "<td>".$row['alamat_lengkap']."</td>";
-                        
+                          echo "<td>".$row['alamat_lengkap']."</td>";                        
                           echo "</tr>";
-                          echo "<tr>" ;
-                          echo "<td>Moda Transportasi</td>";
-                          echo "<td>".$row['moda_transportasi']."</td>";
-                          echo "</tr>";
+
                           
                           echo "<tr>" ;
                           echo "<td>No Handphone</td>";
@@ -84,28 +80,35 @@ $result = $koneksi->query($query_select);
 
                           echo "<tr>" ;
                           echo "<td>KK </td>";
-                          echo "<td><img src=../upload_berkas/".rawurlencode($row['kartu_keluarga'])."></td>";
+                          echo "<td><a class='btn btn-success me-2' href=../upload_berkas/".rawurlencode($row['kartu_keluarga']).">Lihat berkas</a></td>";
                           echo "</tr>";
 
                           echo "<tr>" ;
                           echo "<td>KIA </td>";
-                          echo "<td><img src=../upload_berkas/".rawurlencode($row['kia'])."></td>";
+                          echo "<td><a class='btn btn-success me-2' href=../upload_berkas/".rawurlencode($row['kia']).">Lihat berkas</a></td>";
                           echo "</tr>";
 
                           echo "<tr>" ;
                           echo "<td>AKTA </td>";
-                          echo "<td><img src=../upload_berkas/".rawurlencode($row['akta_kelahiran'])."></td>";
+                          echo "<td><a class='btn btn-success me-2' href=../upload_berkas/".rawurlencode($row['akta_kelahiran']).">Lihat berkas</a></td>";
                           echo "</tr>";
                          }?>
-                          <form action="review_detail_action.php" method="post">
+                          <form action="review_detail_action.php" method="post" onsubmit="return validateForm();">
                           <input id="idreg" name="idreg" value="<?php echo $id_reg;?>" type="hidden">
                           <tr>
                           <td>Status</td>
                           <td>
-                          <select class="form-control" name="status" id="status">
-                              <option value="lengkap">Lengkap</option>
-                              <option value="belum_lengkap">Belum Lengkap</option>
-                          </select>
+                          <div class="row">
+                            <div class="col-md-2">
+                              <input type="radio" class="form-check-input" id="status" name="status" value="lengkap">
+                              <label for="form-check-label1"> Lengkap </label>
+                            </div>
+                            <div class="col-md-2">
+                              <input type="radio" class="form-check-input" id="status" name="status" value="belum lengkap">
+                              <label for="form-check-label2"> Belum Lengkap</label>
+                            </div>
+                          </div>
+
                           </td>
                           </tr>
                           <tr>
@@ -140,6 +143,26 @@ $result = $koneksi->query($query_select);
         </div>
     <!-- page-body-wrapper ends -->
   </div>
+  <script>
+  function validateForm() {
+    var gender = document.getElementsByName('status');
+        var genValue = false;
+
+        for(var i=0; i<gender.length;i++){
+            if(gender[i].checked == true){
+                genValue = true;    
+            }
+        }
+        if(!genValue){
+            alert("Pilih status berkas");
+            return false;
+        }
+        else{
+          alert("Berkas terkonfirmasi")
+          return true;
+        }
+}
+</script>
   <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="../src/vendors/js/vendor.bundle.base.js"></script>

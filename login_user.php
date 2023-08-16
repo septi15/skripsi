@@ -44,7 +44,7 @@
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+      <a class="underlineHover" href="lupa_password.php">Forgot Password?</a>
     </div>
 
 
@@ -73,9 +73,14 @@
           <input type="email" class="fadeIn third" id="email" name="email" placeholder="E-Mail">
         </div>
         <div class="form-group">
+          <label for="exampleInputUsername1">Nama Lengkap</label>
+          <input type="text" class="fadeIn fourth" id="nama" name="nama" placeholder="Nama Lengkap">
+        </div>
+        <div class="form-group">
           <label for="exampleInputUsername1">Password</label>
           <input type="password" class="fadeIn fourth" id="passwordreg" name="passwordreg" placeholder="Password">
         </div>
+
         <input type="submit" name="bt_registrasi" id="bt_registrasi" value="Registrasi" class="btn btn-primary me-2">
       </div>
       </form>

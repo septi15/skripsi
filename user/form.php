@@ -3,7 +3,7 @@
 <div class="main-panel">
  <div class="content-wrapper">
           <div class="row">
-            <div class="col-md-12 grid-margin stretch-card">
+            <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h2 class="card-title">Input Data Pendaftaran (Data Ayah)</h2>
@@ -42,7 +42,7 @@
                     <div class="row">
                         <div class="col-md-6">
                           <label for="exampleInputUsername1"> Pendidikan </label>
-                          <select id="pendidikan" name="pendidikan" class="form-control">
+                          <select id="pendidikanayah" name="pendidikanayah" class="form-control">
                               <option value="">Pilih Pendidikan Terakhir Ayah</option>
                               <option value="sd">SD</option>
                               <option value="smp">SMP</option>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="form-group">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                           <label for="exampleInputUsername1">Penghasilan (Dalam Rupiah) </label>
                           <select id="penghasilanayah" name="penghasilanayah" class="form-control">
                               <option value="">Pilih Penghasilan Ayah</option>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="form-group">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-6">
                           <label for="exampleInputUsername1"> No Handphone</label>
                           <input type="text" class="form-control" id="nohp" name="nohp" value="<?php echo $_SESSION['nohp'];?>" readonly>
                         </div>
@@ -79,9 +79,7 @@
               </div>
             </div>
 
-          </div>
-          <div class="row">
-            <div class="col-md-12 grid-margin stretch-card">
+            <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h2 class="card-title">Input Data Pendaftaran (Data Ibu)</h2>
@@ -132,7 +130,7 @@
                     </div>
                     <div class="form-group">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                           <label for="exampleInputUsername1">Penghasilan (Dalam Rupiah) </label>
                           <select id="penghasilanibu" name="penghasilanibu" class="form-control">
                               <option value="">Pilih Penghasilan Ibu</option>
@@ -145,24 +143,15 @@
                         </div>
                       </div>
                     </div>
-                    <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2">
-                          <label for="exampleInputUsername1"> No Handphone</label>
-                          <input type="text" class="form-control" id="nohp" name="nohp" value="<?php echo $_SESSION['nohp'];?>" readonly>
-                        </div>
-                      </div>
-                    </div>
-                </div>
               </div>
             </div>
 
           </div>
           <div class="row">
-            <div class="col-md-12 grid-margin stretch-card">
+            <div class="col-md-10 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Input Data Pendaftaran</h4>
+                  <h4 class="card-title">Input Data Pendaftaran (Calon Siswa) </h4>
                   <p class="card-description">
                   </p>
                   <div class="form-group">
@@ -185,11 +174,11 @@
                       <label  for="form-check-label"> Jenis Kelamin </label>
                       <div class="row">
                         <div class="col-md-2">
-                          <input type="checkbox" class="form-check-input" id="jeniskelamin" name="jeniskelamin" value="lakilaki">
+                          <input type="radio" class="form-check-input" id="jeniskelamin" name="jeniskelamin" value="lakilaki">
                           <label for="form-check-label1"> Laki-Laki</label>
                         </div>
                         <div class="col-md-2">
-                          <input type="checkbox" class="form-check-input" id="jeniskelamin" name="jeniskelamin" value="perempuan">
+                          <input type="radio" class="form-check-input" id="jeniskelamin" name="jeniskelamin" value="perempuan">
                           <label for="form-check-label2"> Perempuan</label>
                         </div>
                       </div>
@@ -240,8 +229,17 @@
                         </div>
                       </div>
                     </div>
-                   
-                    <button type="submit" name="Submit" class="btn btn-primary me-2">Submit</button>
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-md-6">
+                       
+                        <input type="checkbox" class="form-check-input" id="validate" name="validate" >
+                        <label for="exampleInputUsername1"> <span class="mdi mdi-asterisk"> Data yang diisi sudah benar</span></label>
+
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" id="submit" name="Submit" class="btn btn-primary me-2" disabled>Submit</button>
                     <button class="btn btn-light">Cancel</button>
                   </form>
                 </div>
@@ -273,7 +271,17 @@
     alert("KIA belum di upload ");
     return false;
   }
+  alert("Silahkan cek status pendaftaran dalam 1 hari ");
+  return true;
 }
+</script>
+<script>
+  const myCheckbox = document.getElementById('validate');
+  const myButton = document.getElementById('submit');
+
+  myCheckbox.addEventListener('change', function() {
+  myButton.disabled = !this.checked;
+});
 </script>
   <!-- plugins:js -->
   <script src="../src/vendors/js/vendor.bundle.base.js"></script>

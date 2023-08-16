@@ -10,21 +10,27 @@
   <link rel="stylesheet" href="../src/vendors/typicons/typicons.css">
   <link rel="stylesheet" href="../src/vendors/simple-line-icons/css/simple-line-icons.css">
   <link rel="stylesheet" href="../src/vendors/css/vendor.bundle.base.css">
+
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="../src/vendors/select2/select2.min.css">
-  <link rel="stylesheet" href="../src/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="../src/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
   <link rel="stylesheet" href="../src/js/select.dataTables.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-  <link rel="stylesheet" href="../assets/css/font-awesome.min.css"> 
-	<link rel="stylesheet" href="../assets/css/bootstrap-theme.css" media="screen"> 
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+
+  <link rel="stylesheet" href="../css/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../css/datatables.net-select-bs4/css/select.bootstrap4.min.css">
   <link rel="stylesheet" href="../src/css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../src/images/al-khairaat.jpg" />
+  <link rel="stylesheet" href="../css/prismjs/themes/prism.css">
+  <link rel="stylesheet" href="../css/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../css/owl.carousel/dist/assets/owl.theme.default.min.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="../src/images/al-khairaat.jpg" />
+  <link rel="stylesheet" href="../css/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel='stylesheet' id='camera-css'  href='../assets/css/camera.css' type='text/css' media='all'> 
   <?php 
 	session_start();
 	if($_SESSION['status']!="login"){
