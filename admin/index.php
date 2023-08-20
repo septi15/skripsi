@@ -142,7 +142,7 @@ if ($result_total_date->num_rows > 0)
       <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
             <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Data status review berkas <a style="padding-left: 380px;" class="mdi mdi-printer" href="report_pendaftaran.php?total_test=<?php echo $total_test;?>&total_bayar=<?php echo $total_pembayaran;?>&total_siswa=<?php echo $total_siswa;?>"></a></h4>
+                  <h4 class="card-title">Data status review berkas <a style="padding-left: 580px;" class="mdi mdi-printer" href="report_pendaftaran.php?total_test=<?php echo $total_test;?>&total_bayar=<?php echo $total_pembayaran;?>&total_siswa=<?php echo $total_siswa;?>"></a></h4>
                   <canvas id="pieCharts"></canvas>
                 </div>
             </div>
@@ -150,8 +150,8 @@ if ($result_total_date->num_rows > 0)
       <div class="col-lg-6 grid-margin stretch-card">
           <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Pendaftaran berdasarkan tanggal <a style="padding-left: 580px;" class="mdi mdi-printer" href="report_pendaftaran.php?total_test=<?php echo $total_test;?>&total_bayar=<?php echo $total_pembayaran;?>&total_siswa=<?php echo $total_siswa;?>"></a></h4>
-                  <canvas id="barCharts"></canvas>
+                  <h4 class="card-title">Pendaftaran berdasarkan tanggal </h4>
+                  <canvas id="barCharts" ></canvas>
                 </div>
           </div>
       </div>
@@ -213,6 +213,8 @@ if ($result_total_date->num_rows > 0)
         'rgba(255, 206, 86, 0.2)',
         'rgba(75, 192, 192, 0.2)',
         'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
         'rgba(255, 159, 64, 0.2)'
       ],
       borderColor: [
@@ -221,6 +223,8 @@ if ($result_total_date->num_rows > 0)
         'rgba(255, 206, 86, 1)',
         'rgba(75, 192, 192, 1)',
         'rgba(153, 102, 255, 1)',
+        'rgba(255,99,132,1)',
+        'rgba(255, 206, 86, 1)',
         'rgba(255, 159, 64, 1)'
       ],
       borderWidth: 1,
@@ -228,6 +232,7 @@ if ($result_total_date->num_rows > 0)
     }]
   };
   var options = {
+    responsive: true,
     scales: {
       yAxes: [{
         ticks: {
@@ -242,8 +247,20 @@ if ($result_total_date->num_rows > 0)
       point: {
         radius: 0
       }
+    },
+    onClick:function(e){
+        var activePoints = barCharts.getElementsAtEvent(e);
+        if (activePoints[0]) {
+        var chartData = activePoints[0]['_chart'].config.data;
+        var selectedIndex = activePoints[0]._index;
+        var idx = activePoints[0]['_index'];
+        var label = chartData.labels[idx];
+        //alert(label);
+        var url = "http://localhost/skripsi/admin/report_tanggal.php?label=" + label;
+        window.location.href = url;
+      }
     }
-
+  
   };
 
       if ($("#pieCharts").length) {
@@ -256,16 +273,27 @@ if ($result_total_date->num_rows > 0)
   }
 
   if ($("#barCharts").length) {
-    var barChartCanvas = $("#barCharts").get(0).getContext("2d");
-    // This will get the first returned node in the jQuery collection.
-    var barChart = new Chart(barChartCanvas, {
+    var barChartCanvasid = $("#barCharts").get(0).getContext("2d");
+    // This will get the fbarChartsirst returned node in the jQuery collection.
+    var barCharts = new Chart(barChartCanvasid, {
       type: 'bar',
       data: data,
       options: options
+      
     });
+  
   }
 });
 
+function clickHandler(evt) {
+    const points = barCharts.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+
+    if (points.length) {
+        const firstPoint = points[0];
+        const label = barCharts.data.labels[firstPoint.index];
+        const value = barCharts.data.datasets[firstPoint.datasetIndex].data[firstPoint.index];
+    }
+}
   </script>
   <!-- plugins:js -->
   <script src="../src/vendors/js/vendor.bundle.base.js"></script>

@@ -1,34 +1,13 @@
 <?php
 include '../koneksi.php';
-$total_test = $_GET['total_test'];
-$total_pembayaran = $_GET['total_bayar'];
+$label = $_GET['label'];
 setlocale(LC_ALL, 'id_ID.utf8');
 $hariIni = new DateTime();
 $hari_ing = date('l');
 $hari_ind = hariIndo($hari_ing);
 $tanggal =  strftime('%d-%m-%Y');
-$total_siswa = $_GET['total_siswa'];
-
-$total_belum_bayar = $total_siswa - $total_pembayaran;
-$total_belum_test = $total_siswa - $total_test;
-$query = "SELECT * from status_review" ;
-$lengkap = 0;
-$belum_lengkap =0;
-$result = $koneksi->query($query);
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        if ($row['status'] == 'lengkap'){
-            $lengkap = $lengkap + 1;
-        }else if ($row['status'] == 'belum_lengkap'){
-            $belum_lengkap = $belum_lengkap + 1;
-        }
-        
-    }
-}
-$date= array();
-$jumlah_date = array();
-$query_total_date= "SELECT date(date_time) AS date_time, COUNT(*) AS jumlah_date FROM pendaftaran_siswa_baru GROUP BY date(date_time)";
-$result_total_date = $koneksi->query($query_total_date);
+$query_total_date= "SELECT id_siswa_baru, nama_lengkap, date_time FROM pendaftaran_siswa_baru where date(date_time) = '$label'";
+$result_tanggal = $koneksi->query($query_total_date);
 
 function hariIndo ($hariInggris) {
     switch ($hariInggris) {
@@ -91,90 +70,39 @@ function hariIndo ($hariInggris) {
             <th width="10%">
                 No 
             </th>
-            <th width="60%">
-                Status Berkas
+            <th width="30%">
+                ID Pendaftaran
             </th>
             <th>
-                Jumlah Siswa 
+                Nama Siswa
+            </th>
+            <th>
+                Tanggal Pendaftaran
             </th>
         </tr>
         </thead>
         <tbody>
-        <tr align="center">
-            <td>1. </td>
-            <td>Lengkap </td>
-            <td><?php echo $lengkap;?> </td>
-        </tr>
-        <tr align="center">
-            <td>2. </td>
-            <td>Belum Lengkap </td>
-            <td><?php echo $belum_lengkap;?> </td>
-        </tr>
+            <?php $i = 0;
+            if ($result_tanggal->num_rows > 0) {
+                while ($row=$result_tanggal->fetch_assoc()) { 
+            $i = $i + 1;
+            echo "<tr align='center'>";
+            echo "<td>".$i."</td>";
+            echo "<td>".$row['id_siswa_baru']."</td>";
+            echo "<td>".$row['nama_lengkap']."</td>";
+            echo "<td>".date("d-m-Y", strtotime($row['date_time']) )."</td>";
+
+            echo "</tr>";
+                }
+            }
+            ?>
         </tbody>
 
     </table>
     <br>
-    <table border="1" width="70%">
-        
-    <thead>
-        <tr>
-            <th width="10%">
-                No 
-            </th>
-            <th width="60%">
-                Status Test
-            </th>
-            <th>
-                Jumlah Siswa 
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr align="center">
-            <td>1. </td>
-            <td>Lulus Test </td>
-            <td><?php echo $total_test;?> </td>
-        </tr>
-        <tr align="center">
-            <td>2. </td>
-            <td>Proses Berkas / Pengajuan Test Ulang  </td>
-            <td><?php echo $total_belum_test;?> </td>
-        </tr>
-        </tbody>
-
-    </table>
-    <br>
-    <table border="1" width="70%">
-        
-    <thead>
-        <tr>
-            <th width="10%">
-                No 
-            </th>
-            <th width="60%">
-                Status Pembayaran
-            </th>
-            <th>
-                Jumlah Siswa 
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr align="center">
-            <td>1. </td>
-            <td>Pembayaran Lunas </td>
-            <td><?php echo $total_pembayaran;?> </td>
-        </tr>
-        <tr align="center">
-            <td>2. </td>
-            <td>Pembayaran Minimal / Belum Lunas </td>
-            <td><?php echo $total_belum_bayar;?> </td>
-        </tr>
-        </tbody>
-
-    </table>
+   
    <br>
-    
+  
     <br>
     <table width="70%" >
         <tr>
